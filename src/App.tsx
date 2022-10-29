@@ -1,5 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import Admin from "./components/Admin";
+import Home from "./components/Home";
+import Movies from "./components/Movies";
 
 function App() {
   return (
@@ -38,18 +41,6 @@ function App() {
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function Movies() {
-  return <h2>Movies</h2>;
-}
-
-function Admin() {
-  return <h2>Manage Catalogue</h2>;
 }
 
 export default App;
