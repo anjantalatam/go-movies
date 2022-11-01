@@ -8,6 +8,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import Admin from "./components/Admin";
+import Categories from "./components/Categories";
 import Home from "./components/Home";
 import Movies from "./components/Movies";
 
@@ -31,6 +32,9 @@ function App() {
                   <Link to="/movies">Movies</Link>
                 </li>
                 <li className="list-group-item">
+                  <Link to="/by-category">Categories</Link>
+                </li>
+                <li className="list-group-item">
                   <Link to="/admin">Manage Catalogue</Link>
                 </li>
               </ul>
@@ -44,6 +48,10 @@ function App() {
                 <Route index element={<Movies />} />
                 <Route path=":id" element={<Movie />} />
               </Route>
+              <Route path="/by-category" element={<Outlet />}>
+                <Route index element={<CategoryPage />} />
+                <Route path=":category" element={<Categories />} />
+              </Route>
               <Route path="/admin" element={<Admin />} />
             </Routes>
           </div>
@@ -56,6 +64,27 @@ function App() {
 function Movie() {
   const { id } = useParams();
   return <h2>Movie id {id}</h2>;
+}
+
+function CategoryPage() {
+  const categories = [
+    { route: "comedy", title: "Comedy" },
+    { route: "drama", title: "Drama" },
+  ];
+  return (
+    <div>
+      <h2>Categories</h2>
+      <ul>
+        {categories.map((cat) => (
+          <li>
+            <Link to={cat.route} state={{ title: cat.title }}>
+              {cat.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
