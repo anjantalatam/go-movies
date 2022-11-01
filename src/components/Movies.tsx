@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 interface IMovie {
   id: string;
   title: string;
-  runTime: Number;
+  runtime: Number;
 }
 
 function Movies() {
@@ -12,9 +12,9 @@ function Movies() {
 
   useEffect(() => {
     setMovies([
-      { id: "1", title: "The Shawshank Redemption", runTime: 142 },
-      { id: "2", title: "The Godfather", runTime: 175 },
-      { id: "3", title: "The Dark Knight", runTime: 153 },
+      { id: "1", title: "The Shawshank Redemption", runtime: 142 },
+      { id: "2", title: "The Godfather", runtime: 175 },
+      { id: "3", title: "The Dark Knight", runtime: 153 },
     ]);
   }, []);
 

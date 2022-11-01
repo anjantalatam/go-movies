@@ -11,6 +11,7 @@ import Admin from "./components/Admin";
 import Categories from "./components/Categories";
 import Home from "./components/Home";
 import Movies from "./components/Movies";
+import OneMovie from "./components/OneMovie";
 
 function App() {
   return (
@@ -46,7 +47,8 @@ function App() {
               <Route index element={<Home />} />
               <Route path="/movies" element={<Outlet />}>
                 <Route index element={<Movies />} />
-                <Route path=":id" element={<Movie />} />
+                {/* <Route path=":id" element={<Movie />} /> */}
+                <Route path=":id" element={<OneMovie />} />
               </Route>
               <Route path="/by-category" element={<Outlet />}>
                 <Route index element={<CategoryPage />} />
@@ -59,11 +61,6 @@ function App() {
       </div>
     </Router>
   );
-}
-
-function Movie() {
-  const { id } = useParams();
-  return <h2>Movie id {id}</h2>;
 }
 
 function CategoryPage() {
